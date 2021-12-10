@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import {useParams} from "react-router-dom";
 import axios from 'axios';
-import "./locationDetails.scss"
+import "./locationDetails.scss";
+import "./media.scss";
 function LocationDetails() {
   let { term } = useParams();
   const [x] = useState(59.6157432);
@@ -25,26 +26,28 @@ function LocationDetails() {
     return (
       <div className="LocationDetails">
         <main>
-        <div className={data !== null ?"searchResult" : "searchResult hide"}>
-          <table className="searchResult__table">
-            <tr className="title">
-              <th>عنوان</th>
-              <th>آدرس</th>
-              <th>دسته بندی</th>
-              <th>نوع</th>
-              <th>منطقه</th>
-            </tr>
-            {data !== null ?data.map(e => (
-              <tr>
-                <td>{e.title}</td>
-                <td>{e.address}</td>
-                <td>{e.category}</td>
-                <td>{e.type}</td>
-                <td>{e.region}</td>
-              </tr>
-              )) : null}
-          </table>
-          </div>
+          {data !== null ?
+            <div className="searchResult">
+              <table className="searchResult__table">
+                <tr className="title">
+                  <th>عنوان</th>
+                  <th>آدرس</th>
+                  <th>دسته بندی</th>
+                  <th>نوع</th>
+                  <th>منطقه</th>
+                </tr>
+                {data !== null ?data.map(e => (
+                  <tr>
+                    <td>{e.title}</td>
+                    <td>{e.address}</td>
+                    <td>{e.category}</td>
+                    <td>{e.type}</td>
+                    <td>{e.region}</td>
+                  </tr>
+                  )) : null}
+              </table>
+              </div>
+          : null}
         </main>
       </div>
       );

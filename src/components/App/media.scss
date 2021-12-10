@@ -1,0 +1,15 @@
+@media screen and (max-width: 1200px) {
+    main{
+        .searchForm{
+            .searchForm__input{
+                width: 70% !important;
+            }
+            .searchForm__button{
+                width: 20% !important;
+            }
+        }
+        .searchResult {
+            width: 90% !important;
+        }
+    }
+}
