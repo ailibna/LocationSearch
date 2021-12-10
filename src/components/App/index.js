@@ -1,6 +1,7 @@
 import './App.scss';
 import React, { useState } from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 function App() {
   const getData = (location, x, y) => {
     const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -21,13 +22,12 @@ function App() {
     }
   }
   const serachHandler = () =>{
-    let location = term;
-    let x = 59.6157432;
-    let y = 36.2880443;
-    getData(location, x, y);
+    getData(term, x, y);
   }
   const [data, setData] = useState(null);
   const [term, setTerm] = useState("");
+  const [x] = useState(59.6157432);
+  const [y] = useState(36.2880443);
   return (
     <div className="App">
       <main>
@@ -49,8 +49,10 @@ function App() {
             </tr>
             {data !== null ?data.map(e => (
               <tr>
-                <td>{e.title}</td>
-                <td>{e.region}</td>
+                <Link to={{ pathname: "/locationDetails/" + e.title}}>
+                  <td>{e.title}</td>
+                </Link>
+                  <td>{e.region}</td>
               </tr>
               )) : null}
           </table>

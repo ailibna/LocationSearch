@@ -1,9 +1,9 @@
 @font-face {
   font-family: Vazir;
-  src: url('./asset/font/Vazir-Medium.eot') format('eot'),
-  url('./asset/font/Vazir-Medium.ttf') format('ttf'),
-  url('./asset/font/Vazir-Medium.woff') format('woff'),
-  url('./asset/font/Vazir-Medium.woff2') format('woff2');
+  src: url('../../asset/font/Vazir-Medium.eot') format('eot'),
+  url('../../asset/font/Vazir-Medium.ttf') format('ttf'),
+  url('../../asset/font/Vazir-Medium.woff') format('woff'),
+  url('../../asset/font/Vazir-Medium.woff2') format('woff2');
 }
 *{
   font-family: Vazir;
@@ -24,7 +24,7 @@ main{
   left: 0;
   right: 0;
   z-index: -1;
-  background-image: url("./asset/tehran.jpg");
+  background-image: url("../../asset/tehran.jpg");
   min-height: 100vh;
   background-size: cover;
   filter: blur(5px);
@@ -120,13 +120,22 @@ main{
         tr{
           color: #8c8c8c;
           cursor: pointer;
+          a{
+            text-decoration: none;
+            color: #8c8c8c;
+          }
           td{
             padding: 10px 5px;
             margin: 5px 0;
           }
           &.title{
+            background-color: #3979d9;
+            color: white;
+            th{
+              padding: 5px 8px;
+            }
             &:hover{
-              background-color: white !important;
+              background-color: #3979d9 !important;
             }
           }
           &:hover{
